@@ -33,8 +33,8 @@ class SerialWidget(QWidget):
         self.stopbitsComboBox.addItems(['1','1.5','2'])
         self.stopbitsComboBox.setCurrentIndex(0)
 
-        self.okButton=QPushButton(self.tr("ok"))
-        self.cancelButton=QPushButton(self.tr("cancel"))
+        self.okButton=QPushButton(self.tr("确定"))
+        self.cancelButton=QPushButton(self.tr("消息"))
 		
         self.detailWidget=QWidget()
         detailLayout=QGridLayout(self.detailWidget)
@@ -76,14 +76,14 @@ class LanLocWidget(QWidget):
     def __init__(self,parent=None):
         super(LanLocWidget,self).__init__(parent)  
                
-        languageLabel=QLabel(self.tr("Language"))
+        languageLabel=QLabel(self.tr("语言"))
         self.languageComBox=QComboBox()
-        self.languageComBox.addItems(['English'])
+        self.languageComBox.addItems(['英文'])
         self.languageComBox.setCurrentIndex(0)
     
-        locationLabel=QLabel(self.tr("Location"))
+        locationLabel=QLabel(self.tr("区域"))
         self.locationComboBox=QComboBox()
-        self.locationComboBox.addItems(['China Mainland','Others'])
+        self.locationComboBox.addItems(['中国大陆','其它'])
         self.locationComboBox.setCurrentIndex(1)
 
         self.detailWidget=QWidget()
@@ -102,9 +102,9 @@ class updateConfig(QWidget):
     def __init__(self,parent=None):
         super(updateConfig,self).__init__(parent)
 
-        checkFirmware=QLabel(self.tr("CheckFirmware"))
+        checkFirmware=QLabel(self.tr("检查固件"))
         self.checkBinComBox=QComboBox()
-        self.checkBinComBox.addItems(['check update','no check'])
+        self.checkBinComBox.addItems(['检查更新','没有检查'])
         self.checkBinComBox.setCurrentIndex(0)
 
         self.detailWidget=QWidget()
@@ -126,12 +126,12 @@ class Preferences(QDialog):
         
         tabWidget=QTabWidget()
         tabWidget.setTabPosition(QTabWidget.West);
-        tabWidget.addTab(SerialWidget(self),"Serial")
-        tabWidget.addTab(self.landlocation,"Languare Location")
-        tabWidget.addTab(self.configUpdate,"config")
+        tabWidget.addTab(SerialWidget(self),"串口配置")
+        tabWidget.addTab(self.landlocation,"语言区域")
+        tabWidget.addTab(self.configUpdate,"配置")
         layout.addWidget(tabWidget,1,0)
         self.setLayout(layout)
         self.resize(300,200)
-        self.setWindowTitle("Preferences")
+        self.setWindowTitle("首选项"")
         self.setWindowIcon(QIcon(':/logo.png')) 
 

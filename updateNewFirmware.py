@@ -15,7 +15,7 @@ class updateNewFirmwareBar(QDialog):
         self.setWindowTitle(windowname)
         self.setWindowIcon(QIcon(':/logo.png'))
 
-        self.updateLabel=QLabel(self.tr("Burn"))
+        self.updateLabel=QLabel(self.tr("烧写"))
         self.updateBar=QProgressBar(self)
         self.updateBar.setStyleSheet("""QProgressBar::chunk{background-color: qlineargradient( x1: 0,  x2: 1,stop: 0 #FF4E50, stop: 1 #FFBE2B);}""")
         self.updateBar.setTextVisible(False)
@@ -24,7 +24,7 @@ class updateNewFirmwareBar(QDialog):
 
         self.isUPY=isUPY
         if isUPY:
-            self.downloadLabel=QLabel(self.tr("Download"))
+            self.downloadLabel=QLabel(self.tr("下载"))
             self.downloadBar=QProgressBar(self)
             self.downloadBar.setStyleSheet("""QProgressBar::chunk{background-color: qlineargradient( x1: 0,  x2: 1,stop: 0 #FF4E50, stop: 1 #FFBE2B);}""")
             self.downloadBar.setTextVisible(False)
@@ -38,7 +38,7 @@ class updateNewFirmwareBar(QDialog):
         
         if isErase:
             self.eraseBar=QProgressBar(self)
-            self.eraseLabel=QLabel(self.tr("EraseFlash"))
+            self.eraseLabel=QLabel(self.tr("擦除FLASH"))
             self.eraseBar.setStyleSheet("""QProgressBar::chunk{background-color: qlineargradient( x1: 0,  x2: 1,stop: 0 #FF4E50, stop: 1 #FFBE2B);}""")
             self.eraseBar.setTextVisible(False)
             self.eraseLabelLabel=QLabel(self.tr("0%"))
@@ -129,43 +129,43 @@ class updateNewFirmware(QDialog):
             for port in port_list:
                 Com_List.append(port[0])
 
-            self.comLabel=QLabel(self.tr("com"))
+            self.comLabel=QLabel(self.tr("串口"))
             self.comChoose=QComboBox()
             self.comChoose.addItems(Com_List)
 	
-        self.okButton=QPushButton(self.tr("ok"))
+        self.okButton=QPushButton(self.tr("确定"))
         self.cancelButton=QPushButton(self.tr("cancel"))
 
-        self.boardLabel=QLabel(self.tr("board"))
+        self.boardLabel=QLabel(self.tr("开发板"))
         self.boardComboBox=QComboBox()
         self.boardComboBox.addItems(["esp8266","TPYBoardV202","esp32","microbit"])
         self.boardComboBox.setCurrentIndex(2)
 
-        self.burnAddrLabel=QLabel(self.tr("burn_addr"))
+        self.burnAddrLabel=QLabel(self.tr("烧写地址"))
         self.burnAddrComboBox=QComboBox()
         self.burnAddrComboBox.addItems(["0x0","0x1000"])
         self.burnAddrComboBox.setCurrentIndex(0)
 
-        self.eraseflashLabel=QLabel(self.tr("erase_flash"))
+        self.eraseflashLabel=QLabel(self.tr("擦除FLASH"))
         self.eraseComboBox=QComboBox()
         self.eraseComboBox.addItems(["yes","no"])
         self.eraseComboBox.setCurrentIndex(1)
 
 
-        self.myGroupBox  = QGroupBox(self.tr("Firmware Choose"))         
+        self.myGroupBox  = QGroupBox(self.tr("固件选择"))         
 
         self.detailWidget=QWidget()
         layout = QGridLayout(self.detailWidget)
         #########
-        self.myGroupBox  = QGroupBox(self.tr("Firmware Choose"))
+        self.myGroupBox  = QGroupBox(self.tr("固件选择"))
         
         self.myGroupBoxLayout = QGridLayout()
         
-        self.firmwareTip=QLabel(self.tr("Firmware Choose"))
+        self.firmwareTip=QLabel(self.tr("固件选择"))
         self.radioUPY=QRadioButton("uPyCraft")
-        self.radioUser=QRadioButton("Users")
+        self.radioUser=QRadioButton("用户")
         self.firmwareName=QLineEdit()
-        self.chooseFirmwareButton=QPushButton(self.tr("choose"))   
+        self.chooseFirmwareButton=QPushButton(self.tr("选择"))   
 
         self.myGroupBoxLayout.addWidget(self.radioUPY,0,0)
         self.myGroupBoxLayout.addWidget(self.radioUser,1,0)

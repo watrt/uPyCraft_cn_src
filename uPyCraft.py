@@ -42,7 +42,7 @@ from microbit_api               import MICROPYTHON_APIS
 from SourceCodePro import SourceCodePro
 
 mainShow=True
-nowIDEVersion      ="1.1"
+nowIDEVersion      ="1.1 汉化版(watrt)"
 isCheckFirmware    =False
 rootDirectoryPath  =os.path.expanduser("~")
 rootDirectoryPath  =rootDirectoryPath.replace("\\","/")
@@ -208,8 +208,8 @@ class MainWidget(QMainWindow):
                 flags=True
                 break
         if flags is False:
-            checkfont=QMessageBox.question(self,"SourceCodePro Font",  
-                                    "Please install SourceCodePro font",
+            checkfont=QMessageBox.question(self,"源码字体",  
+                                    "请安装源码字体",
                                     QMessageBox.Ok|QMessageBox.Cancel,  
                                     QMessageBox.Ok)  
             if checkfont==QMessageBox.Ok:
@@ -349,51 +349,51 @@ class MainWidget(QMainWindow):
     def createActions(self):
 #File
         #self.fileOpenAction=QAction(QIcon(":/fileOpen.png"),self.tr("Open"),self)
-        self.fileOpenAction=QAction(self.tr("Open"),self) 
+        self.fileOpenAction=QAction(self.tr("打开"),self) 
         self.fileOpenAction.setShortcut("Ctrl+O")  
-        self.fileOpenAction.setStatusTip(self.tr("open a new file"))  
+        self.fileOpenAction.setStatusTip(self.tr("打开新的文件"))  
         self.connect(self.fileOpenAction,SIGNAL("triggered()"),self.slotOpenFile)
 
-        self.fileOpenToolsAction=QAction(QIcon(":/fileOpen.png"),self.tr("Open"),self) 
+        self.fileOpenToolsAction=QAction(QIcon(":/fileOpen.png"),self.tr("打开"),self) 
         #self.fileOpenToolsAction.setShortcut("Ctrl+O")  
-        self.fileOpenToolsAction.setStatusTip(self.tr("open a new file"))  
+        self.fileOpenToolsAction.setStatusTip(self.tr("打开新的文件"))  
         self.connect(self.fileOpenToolsAction,SIGNAL("triggered()"),self.slotOpenFile)
 
-        #self.fileNewAction=QAction(QIcon(":/newFile.png"),self.tr("New"),self)
-        self.fileNewAction=QAction(self.tr("New"),self)  
+        #self.fileNewAction=QAction(QIcon(":/newFile.png"),self.tr("新建"),self)
+        self.fileNewAction=QAction(self.tr("新建"),self)  
         self.fileNewAction.setShortcut("Ctrl+N")  
-        self.fileNewAction.setStatusTip(self.tr("create a new file"))  
+        self.fileNewAction.setStatusTip(self.tr("新建文件"))  
         self.connect(self.fileNewAction,SIGNAL("triggered()"),self.slotNewFile)
 
-        self.fileNewToolsAction=QAction(QIcon(":/newFile.png"),self.tr("New"),self)
+        self.fileNewToolsAction=QAction(QIcon(":/newFile.png"),self.tr("新建"),self)
         #self.fileNewToolsAction.setShortcut("Ctrl+N")  
-        self.fileNewToolsAction.setStatusTip(self.tr("create a new file"))  
+        self.fileNewToolsAction.setStatusTip(self.tr("新建文件"))  
         self.connect(self.fileNewToolsAction,SIGNAL("triggered()"),self.slotNewFile)
 
         #self.fileSaveAction=QAction(QIcon(":/save.png"),self.tr("Save"),self)
-        self.fileSaveAction=QAction(self.tr("Save"),self)  
+        self.fileSaveAction=QAction(self.tr("保存"),self)  
         self.fileSaveAction.setShortcut("Ctrl+S")  
-        self.fileSaveAction.setStatusTip(self.tr("save the file"))  
+        self.fileSaveAction.setStatusTip(self.tr("保存文件"))  
         self.connect(self.fileSaveAction,SIGNAL("triggered()"),self.slotSaveFile)
 
-        self.fileSaveToolsAction=QAction(QIcon(":/save.png"),self.tr("Save"),self)  
+        self.fileSaveToolsAction=QAction(QIcon(":/save.png"),self.tr("保存"),self)  
         #self.fileSaveToolsAction.setShortcut("Ctrl+S")  #must delete,else ctrl+s not work
-        self.fileSaveToolsAction.setStatusTip(self.tr("save the file"))  
+        self.fileSaveToolsAction.setStatusTip(self.tr("保存文件"))  
         self.connect(self.fileSaveToolsAction,SIGNAL("triggered()"),self.slotSaveFile)
 
         #self.fileSaveAsAction=QAction(QIcon(":/saveas.png"),self.tr("Save as"),self)
-        self.fileSaveAsAction=QAction(self.tr("Save as"),self)  
-        self.fileSaveAsAction.setStatusTip(self.tr("save as a file"))  
+        self.fileSaveAsAction=QAction(self.tr("另存为.."),self)  
+        self.fileSaveAsAction.setStatusTip(self.tr("另存为.."))  
         self.connect(self.fileSaveAsAction,SIGNAL("triggered()"),self.slotSaveFileAs)
 
         #self.refreshBoardFileAction=QAction(QIcon(":/flush.png"),self.tr("Reflush Directory "),self)
-        self.refreshBoardFileAction=QAction(self.tr("Reflush Directory "),self)  
-        self.refreshBoardFileAction.setStatusTip(self.tr("refresh board file"))  
+        self.refreshBoardFileAction=QAction(self.tr("刷新目录"),self)  
+        self.refreshBoardFileAction.setStatusTip(self.tr("刷新目录"))  
         self.connect(self.refreshBoardFileAction,SIGNAL("triggered()"),self.slotTreeModel)
 
         #self.exampleTools=QAction(QIcon(":/examples.png"),self.tr("Examples"),self)
-        self.exampleTools=QAction(self.tr("Examples"),self)
-        self.exampleMenu=QMenu(self.tr("example"))
+        self.exampleTools=QAction(self.tr("示例"),self)
+        self.exampleMenu=QMenu(self.tr("示例"))
         self.connect(self.exampleMenu,SIGNAL("triggered(QAction*)"),self.showExamples)
 
         self.exampleMenu.setStyleSheet("""QMenu {background-color: rgb(254,254,254);}
@@ -418,69 +418,69 @@ class MainWidget(QMainWindow):
         self.createWorkSpaceMenu()
 
         #self.exitAction=QAction(QIcon(":/exit.png"),self.tr("Exit"),self)
-        self.exitAction=QAction(self.tr("Exit"),self)
+        self.exitAction=QAction(self.tr("退出"),self)
         self.exitAction.setShortcut("Ctrl+Q")
-        self.setStatusTip(self.tr("Out"))
+        self.setStatusTip(self.tr("退出"))
         self.connect(self.exitAction,SIGNAL("triggered()"),self.close)
 #Edit
         #self.cutAction=QAction(QIcon(":/cut.png"),self.tr("Cut"),self)
-        self.cutAction=QAction(self.tr("Cut"),self)  
+        self.cutAction=QAction(self.tr("剪切"),self)  
         self.cutAction.setShortcut("Ctrl+X")  
         self.connect(self.cutAction,SIGNAL("triggered()"),self.slotCut)
 
         #self.copyAction=QAction(QIcon(":/copy.png"),self.tr("Copy"),self)
-        self.copyAction=QAction(self.tr("Copy"),self) 
+        self.copyAction=QAction(self.tr("复制"),self) 
         self.copyAction.setShortcut("Ctrl+C")  
         self.connect(self.copyAction,SIGNAL("triggered()"),self.slotCopy)
 
         #self.pasteAction=QAction(QIcon(":/paste.png"),self.tr("Paste"),self)
-        self.pasteAction=QAction(self.tr("Paste"),self)
+        self.pasteAction=QAction(self.tr("粘贴"),self)
         self.pasteAction.setShortcut("Ctrl+V")  
         self.connect(self.pasteAction,SIGNAL("triggered()"),self.slotPaste)
 
         #self.undoAction=QAction(QIcon(":/undo.png"),self.tr("Undo"),self)
-        self.undoAction=QAction(self.tr("Undo"),self)
+        self.undoAction=QAction(self.tr("撤销"),self)
         self.undoAction.setShortcut("Ctrl+Z")  
         self.connect(self.undoAction,SIGNAL("triggered()"),self.slotUndo)
 
-        self.undoToolsAction=QAction(QIcon(":/undo.png"),self.tr("Undo"),self)
+        self.undoToolsAction=QAction(QIcon(":/undo.png"),self.tr("撤销"),self)
         #self.undoToolsAction.setShortcut("Ctrl+Z")  
         self.connect(self.undoToolsAction,SIGNAL("triggered()"),self.slotUndo)
 
         #self.redoAction=QAction(QIcon(":/redo.png"),self.tr("Redo"),self)
-        self.redoAction=QAction(self.tr("Redo"),self)
+        self.redoAction=QAction(self.tr("重做"),self)
         self.redoAction.setShortcut("Ctrl+Y")  
         self.connect(self.redoAction,SIGNAL("triggered()"),self.slotRedo)
 
-        self.redoToolsAction=QAction(QIcon(":/redo.png"),self.tr("Redo"),self)
+        self.redoToolsAction=QAction(QIcon(":/redo.png"),self.tr("重做"),self)
         #self.redoToolsAction.setShortcut("Ctrl+Y")  
         self.connect(self.redoToolsAction,SIGNAL("triggered()"),self.slotRedo)
 
         #self.syntaxCheckAction=QAction(QIcon(":/syntaxCheck.png"),self.tr("syntaxCheck"),self)
-        self.syntaxCheckAction=QAction(self.tr("syntaxCheck"),self)
-        self.syntaxCheckAction.setStatusTip("the program syntax check")
+        self.syntaxCheckAction=QAction(self.tr("语法检查"),self)
+        self.syntaxCheckAction.setStatusTip("程序语法检查")
         self.connect(self.syntaxCheckAction,SIGNAL("triggered()"),self.slotSyntaxCheck)
 
-        self.syntaxCheckToolsAction=QAction(QIcon(":/syntaxCheck.png"),self.tr("syntaxCheck"),self)
-        self.syntaxCheckToolsAction.setStatusTip("the program syntax check")
+        self.syntaxCheckToolsAction=QAction(QIcon(":/syntaxCheck.png"),self.tr("语法检查"),self)
+        self.syntaxCheckToolsAction.setStatusTip("程序语法检查")
         self.connect(self.syntaxCheckToolsAction,SIGNAL("triggered()"),self.slotSyntaxCheck)
 
         #self.clearTerminalAction=QAction(QIcon(":/clear.png"),self.tr("Clear"),self)
-        self.clearTerminalAction=QAction(self.tr("Clear"),self)  
-        self.clearTerminalAction.setStatusTip(self.tr("clear Terminal"))  
+        self.clearTerminalAction=QAction(self.tr("清屏"),self)  
+        self.clearTerminalAction.setStatusTip(self.tr("清屏终端"))  
         self.connect(self.clearTerminalAction,SIGNAL("triggered()"),self.slotClearTerminal)
 
-        self.clearTerminalToolsAction=QAction(QIcon(":/clear.png"),self.tr("Clear"),self)  
-        self.clearTerminalToolsAction.setStatusTip(self.tr("clear Terminal"))  
+        self.clearTerminalToolsAction=QAction(QIcon(":/clear.png"),self.tr("清屏"),self)  
+        self.clearTerminalToolsAction.setStatusTip(self.tr("清屏终端"))  
         self.connect(self.clearTerminalToolsAction,SIGNAL("triggered()"),self.slotClearTerminal)
         
         #self.findAction=QAction(QIcon(":/find.png"),self.tr("find replace"),self)
-        self.findAction=QAction(self.tr("find replace"),self)
+        self.findAction=QAction(self.tr("查找替换"),self)
         self.findAction.setShortcut("Ctrl+F")
         self.connect(self.findAction,SIGNAL("triggered()"),self.slotFindReplaceText)
 #tools
         #self.comMenuTools=QAction(QIcon(":/serial.png"),self.tr("Serial"),self)
-        self.comMenuTools=QAction(self.tr("Serial"),self)
+        self.comMenuTools=QAction(self.tr("串口"),self)
         self.comMenu=QMenu(self.tr("com"))
         self.comActionGroup=QActionGroup(self)
         
@@ -499,17 +499,17 @@ class MainWidget(QMainWindow):
                                    QMenu::item::selected { background-color: rgb(255,239,227); color: #000;}""")
 
         #self.serialConnect=QAction(QIcon(":/connect.png"),self.tr("Connect"),self)
-        self.serialConnect=QAction(self.tr("Connect"),self)
+        self.serialConnect=QAction(self.tr("连接"),self)
         self.connect(self.serialConnect,SIGNAL("triggered()"),self.slotConnectSerial)
 
-        self.serialConnectToolsAction=QAction(QIcon(":/serialConnect.png"),self.tr("Connect"),self)
+        self.serialConnectToolsAction=QAction(QIcon(":/serialConnect.png"),self.tr("连接"),self)
         self.connect(self.serialConnectToolsAction,SIGNAL("triggered()"),self.slotConnectSerial)
 
         #self.serialClose=QAction(QIcon(":/serialClose.png"),self.tr("disconnect"),self)
-        self.serialClose=QAction(self.tr("disconnect"),self)
+        self.serialClose=QAction(self.tr("断开连接"),self)
         self.connect(self.serialClose,SIGNAL("triggered()"),self.slotCloseSerial)
 
-        self.serialCloseToolsAction=QAction(QIcon(":/serialClose.png"),self.tr("disconnect"),self)
+        self.serialCloseToolsAction=QAction(QIcon(":/serialClose.png"),self.tr("断开连接"),self)
         self.connect(self.serialCloseToolsAction,SIGNAL("triggered()"),self.slotCloseSerial)
 
         self.esp8266=QAction(self.tr("esp8266"),self)
@@ -537,7 +537,7 @@ class MainWidget(QMainWindow):
         self.TPYBoardV102.setCheckable(True)
 
 
-        self.otherBoard=QAction(self.tr("other"),self)
+        self.otherBoard=QAction(self.tr("其它"),self)
         self.connect(self.otherBoard,SIGNAL("triggered()"),self.boardOther)
         self.otherBoard.setCheckable(True)
 
@@ -551,7 +551,7 @@ class MainWidget(QMainWindow):
         self.boardActionGroup.addAction(self.otherBoard)
         self.boardActionGroup.setExclusive(True)
         
-        self.boardMenu = QMenu(self.tr("board"))
+        self.boardMenu = QMenu(self.tr("开发板"))
         
         self.boardMenu.addAction(self.esp8266)
         self.boardMenu.addAction(self.TPYBoardV202)
@@ -560,58 +560,61 @@ class MainWidget(QMainWindow):
         self.boardMenu.addAction(self.TPYBoardV102)
         self.boardMenu.addAction(self.microbit)
         self.boardMenu.addAction(self.otherBoard)
-        #self.boardMenuTools=QAction(QIcon(":/board.png"),self.tr("board"),self)
-        self.boardMenuTools=QAction(self.tr("board"),self)
+        #self.boardMenuTools=QAction(QIcon(":/board.png"),self.tr("开发板"),self)
+        self.boardMenuTools=QAction(self.tr("开发板"),self)
         self.boardMenuTools.setMenu(self.boardMenu)
 
         self.boardMenu.setStyleSheet("""QMenu {background-color: rgb(254,254,254);}
                                    QMenu::item::selected { background-color: rgb(255,239,227); color: #000;}""")
 
         #self.downloadAction=QAction(QIcon(":/download.png"),self.tr("Download"),self)
-        self.downloadAction=QAction(self.tr("Download"),self)
-        self.downloadAction.setStatusTip(self.tr("download file to the board"))
+        self.downloadAction=QAction(self.tr("下载"),self)
+        self.downloadAction.setStatusTip(self.tr("下载文件"))
         self.connect(self.downloadAction,SIGNAL("triggered()"),self.slotDownloadFile)
 
-        #self.downloadAndRunAction=QAction(QIcon(":/downloadAndRun.png"),self.tr("DownloadAndRun"),self)
-        self.downloadAndRunAction=QAction(self.tr("DownloadAndRun"),self) 
+        #self.downloadAndRunAction=QAction(QIcon(":/downloadAndRun.png"),self.tr("自动下载"),self)
+        self.downloadAndRunAction=QAction(self.tr("自动下载"),self) 
         self.downloadAndRunAction.setShortcut("F5") 
-        self.downloadAndRunAction.setStatusTip(self.tr("download file and run"))
+        self.downloadAndRunAction.setStatusTip(self.tr("下载运行文件"))
         self.connect(self.downloadAndRunAction,SIGNAL("triggered()"),self.slotDownloadFileAndRun)
 
-        self.downloadAndRunToolsAction=QAction(QIcon(":/downloadAndRun.png"),self.tr("DownloadAndRun"),self) 
+        self.downloadAndRunToolsAction=QAction(QIcon(":/downloadAndRun.png"),self.tr("下载运行文件"),self) 
         #self.downloadAndRunToolsAction.setShortcut("F5") 
-        self.downloadAndRunToolsAction.setStatusTip(self.tr("download file and run"))
+        self.downloadAndRunToolsAction.setStatusTip(self.tr("下载运行文件"))
         self.connect(self.downloadAndRunToolsAction,SIGNAL("triggered()"),self.slotDownloadFileAndRun)
         self.isDownloadFileAndRun=False
 
         #self.stopProgramAction=QAction(QIcon(":/stop.png"),self.tr("Stop"),self)
-        self.stopProgramAction=QAction(self.tr("Stop"),self)
-        self.stopProgramAction.setStatusTip(self.tr("stop the program"))
+        self.stopProgramAction=QAction(self.tr("停止"),self)
+        self.stopProgramAction.setStatusTip(self.tr("停止运行"))
         self.connect(self.stopProgramAction,SIGNAL("triggered()"),self.slotStopProgram)
 
-        self.stopProgramToolsAction=QAction(QIcon(":/stop.png"),self.tr("Stop"),self)
-        self.stopProgramToolsAction.setStatusTip(self.tr("stop the program"))
+        self.stopProgramToolsAction=QAction(QIcon(":/stop.png"),self.tr("停止"),self)
+        self.stopProgramToolsAction.setStatusTip(self.tr("停止运行"))
         self.connect(self.stopProgramToolsAction,SIGNAL("triggered()"),self.slotStopProgram)
 
-        #self.preferenceAction=QAction(QIcon(":/edit.png"),self.tr("Preferences"),self)
-        self.preferenceAction=QAction(self.tr("Preferences"),self)
+        #self.preferenceAction=QAction(QIcon(":/edit.png"),self.tr("首选项"),self)
+        self.preferenceAction=QAction(self.tr("首选项"),self)
         self.connect(self.preferenceAction,SIGNAL("triggered()"),self.slotPreferences)
         
-        #self.initconfig=QAction(QIcon(":/init.png"),self.tr("InitConfig"),self)
-        self.initconfig=QAction(self.tr("InitConfig"),self)
+        #self.initconfig=QAction(QIcon(":/init.png"),self.tr("初始化配置"),self)
+        self.initconfig=QAction(self.tr("初始化配置"),self)
         self.connect(self.initconfig,SIGNAL("triggered()"),self.slotInitConfig)
 
-        #self.burnfirmware=QAction(QIcon(":/burnFirmware.png"),self.tr("BurnFirmware"),self)
-        self.burnfirmware=QAction(self.tr("BurnFirmware"),self)
+        #self.burnfirmware=QAction(QIcon(":/burnFirmware.png"),self.tr("烧写固件"),self)
+        self.burnfirmware=QAction(self.tr("烧写固件"),self)
         self.connect(self.burnfirmware,SIGNAL("triggered()"),self.slotBurnFirmware)  
 #help
-        #self.aboutAction=QAction(QIcon(":/about.png"),self.tr("Tutorial online"),self)
-        self.aboutAction=QAction(self.tr("Tutorial online"),self) 
+        #self.aboutAction=QAction(QIcon(":/about.png"),self.tr("在线教程"),self)
+        self.aboutAction=QAction(self.tr("在线教程"),self) 
         self.connect(self.aboutAction,SIGNAL("triggered()"),self.slotAbout)
-
+        
+        self.infoAction=QAction(self.tr("关于我"),self) 
+        self.connect(self.infoAction,SIGNAL("triggered()"),self.slotInfo)
+        
     def createMenus(self):
 #Files
-        self.fileMenu=self.menuBar().addMenu(self.tr("File"))  
+        self.fileMenu=self.menuBar().addMenu(self.tr("文件"))  
         self.fileMenu.addAction(self.fileNewAction)  
         self.fileMenu.addAction(self.fileOpenAction)
         self.fileMenu.addAction(self.exampleTools)
@@ -622,7 +625,7 @@ class MainWidget(QMainWindow):
 
         self.fileMenu.setStyleSheet("background-color: rgb(254,254,254);")
 #edit
-        editMenu=self.menuBar().addMenu(self.tr("Edit"))  
+        editMenu=self.menuBar().addMenu(self.tr("编辑"))  
         editMenu.addAction(self.copyAction)  
         editMenu.addAction(self.cutAction)  
         editMenu.addAction(self.pasteAction)
@@ -633,7 +636,7 @@ class MainWidget(QMainWindow):
 
         editMenu.setStyleSheet("background-color: rgb(254,254,254);")
 #Tools
-        toolMenu=self.menuBar().addMenu(self.tr("Tools"))
+        toolMenu=self.menuBar().addMenu(self.tr("工具"))
         toolMenu.addAction(self.comMenuTools)
         toolMenu.addAction(self.boardMenuTools)
         toolMenu.addAction(self.downloadAction)
@@ -647,9 +650,9 @@ class MainWidget(QMainWindow):
         
         self.connect(toolMenu,SIGNAL("hovered(QAction*)"),self.slotToolMenuHover) 
 #Help
-        aboutMenu=self.menuBar().addMenu(self.tr("Help"))
+        aboutMenu=self.menuBar().addMenu(self.tr("帮助"))
         aboutMenu.addAction(self.aboutAction)
-        
+        aboutMenu.addAction(self.infoAction)
         aboutMenu.setStyleSheet("background-color: rgb(254,254,254);")
 
         self.menuBar().setStyleSheet("""QMenuBar {background-color: rgb(254, 254, 254);}
@@ -659,7 +662,7 @@ class MainWidget(QMainWindow):
 
 #create toolBars
     def createToolBars(self):
-        fileToolBar=self.addToolBar("File")
+        fileToolBar=self.addToolBar("文件")
         fileToolBar.addAction(self.fileNewToolsAction)
         fileToolBar.addAction(self.fileOpenToolsAction)
         fileToolBar.addAction(self.fileSaveToolsAction)
@@ -848,7 +851,7 @@ class MainWidget(QMainWindow):
         if not os.path.exists(self.workspacePath):
             print("workspacePath is none")
             print(self.workspacePath)
-            self.workspacePath = QFileDialog.getExistingDirectory(self,"set your work space path","./")
+            self.workspacePath = QFileDialog.getExistingDirectory(self,"设定您的工作空间路径","./")
             if self.workspacePath=="":
                 return False
             
@@ -909,7 +912,7 @@ class MainWidget(QMainWindow):
             try:
                 jsonDict=eval(configMsg)
             except:
-                QMessageBox.information(self,self.tr("attention"),self.tr("Please put the uPy_Craft and workSpace into non-Chinese dir."),QMessageBox.Ok)
+                QMessageBox.information(self,self.tr("attention"),self.tr("只能工作在非中文目录"),QMessageBox.Ok)
                 os.remove("%s/AppData/Local/uPyCraft/config.json"%rootDirectoryPath)
                 return False
             self.workspacePath=path+"/workSpace"
@@ -921,7 +924,7 @@ class MainWidget(QMainWindow):
             try:
                 jsonDict=eval(configMsg)
             except:
-                QMessageBox.information(self,self.tr("attention"),self.tr("Please put the uPy_Craft and workSpace into non-Chinese dir."),QMessageBox.Ok)
+                QMessageBox.information(self,self.tr("attention"),self.tr("只能工作在非中文目录"),QMessageBox.Ok)
                 os.remove("%s/AppData/Local/uPyCraft/config.json"%rootDirectoryPath)
                 return False
 
@@ -1081,7 +1084,7 @@ class MainWidget(QMainWindow):
             tabname=tabname+'.py'
         elif str(tabname)[-1]==".":
             if(tabname[0]) == ".":
-                self.terminal.append("filename error")
+                self.terminal.append("文件名错误")
                 return
             else:
                 tabname=tabname+"py"
@@ -1101,8 +1104,8 @@ class MainWidget(QMainWindow):
         
         confirmFileIsExists=False
         if os.path.exists(self.workspacePath+"/"+tabname)==True:
-            fileIsExists=QMessageBox.question(self,"waring",  
-                                "This file is already exists,continue to insted?",
+            fileIsExists=QMessageBox.question(self,"警告",  
+                                "该文件已经存在，继续吗？",
                                 QMessageBox.Ok|QMessageBox.Cancel,  
                                 QMessageBox.Ok)
             if fileIsExists==QMessageBox.Ok:
@@ -1366,7 +1369,7 @@ class MainWidget(QMainWindow):
     def slotChooseCom(self,action):
         #self.rootDevice.setIcon(QIcon(":/about.png"))
         if self.myserial.ser.isOpen():
-            self.terminal.append("serial already opened")
+            self.terminal.append("串口已经打开")
             self.serialConnectToolsAction.setVisible(False)
             self.serialCloseToolsAction.setVisible(True)
             return
@@ -1405,7 +1408,7 @@ class MainWidget(QMainWindow):
             time.sleep(0.1)
             endTime=time.time()
             if endTime-startTime > 3:
-                self.terminal.append("open serial error, please try again.")
+                self.terminal.append("打开串行错误，请重试.")
                 self.myserial.ser.close()
                 if not self.myserial.ser.isOpen():
                     self.updateFirmwareCom=jsonDict['serial']
@@ -1430,7 +1433,7 @@ class MainWidget(QMainWindow):
             endTime=time.time()
             if endTime-startTime>2:
                 self.myserial.ser.close()
-                self.terminal.append("connect serial timeout")
+                self.terminal.append("连接串口超时")
                 return
 
         senddata="sys.platform\r"
@@ -1448,7 +1451,7 @@ class MainWidget(QMainWindow):
             endTime=time.time()
             if endTime-startTime>2:
                 self.myserial.ser.close()
-                self.terminal.append("connect serial timeout")
+                self.terminal.append("连接串口超时")
                 return
 
         #self.currentBoard=startdata.split("\r\n")[1][1:-1]
@@ -1530,7 +1533,7 @@ class MainWidget(QMainWindow):
             time.sleep(0.1)
             endTime=time.time()
             if endTime-startTime > 3:
-                self.terminal.append("open serial error, please try again.")
+                self.terminal.append("打开串行错误，请重试。")
                 self.myserial.ser.close()
                 if not self.myserial.ser.isOpen():
                     self.updateFirmwareCom=jsonDict['serial']
@@ -1555,7 +1558,7 @@ class MainWidget(QMainWindow):
             endTime=time.time()
             if endTime-startTime>2:
                 self.myserial.ser.close()
-                self.terminal.append("connect serial timeout")
+                self.terminal.append("连接串口超时")
                 return
 
         senddata="sys.platform\r"
@@ -1573,7 +1576,7 @@ class MainWidget(QMainWindow):
             endTime=time.time()
             if endTime-startTime>2:
                 self.myserial.ser.close()
-                self.terminal.append("connect serial timeout")
+                self.terminal.append("连接串口超时")
                 return
 
         #self.currentBoard=startdata.split("\r\n")[1][1:-1]
@@ -1680,13 +1683,13 @@ class MainWidget(QMainWindow):
             pass
     def slotDownloadFile(self):
         if self.myserial.ser.isOpen()==False:
-            self.terminal.append('Please open serial')
+            self.terminal.append('请打开串口')
             return False
 
         if self.inDownloadFile==False:
             self.inDownloadFile=True
         else:
-            self.terminal.append('already in download model,please wait.')
+            self.terminal.append('正在下载,请稍等...')
             return
 
         self.readwriteQueue.put("uitouart:::\x03")
@@ -1694,11 +1697,11 @@ class MainWidget(QMainWindow):
 
         self.fileName=self.tabWidget.tabToolTip(self.tabWidget.currentIndex())
         if self.fileName=='':
-            self.terminal.append('Please choose file or input something')
+            self.terminal.append('请选择文件或输入内容')
             self.inDownloadFile=False
             return False
         if self.fileName=="untitled":
-            self.terminal.append('Please save the file before download')
+            self.terminal.append('下载前请保存文件')
             self.inDownloadFile=False
             return False
 
@@ -1732,7 +1735,7 @@ class MainWidget(QMainWindow):
             self.readwriteQueue.put("uitouart:::\x03")
             self.inDownloadFile=False
         else:
-            self.terminal.append("serial not open")
+            self.terminal.append("串口未打开")
         
 ############Tools->InitConfig
     def slotInitConfig(self):
@@ -1784,12 +1787,12 @@ class MainWidget(QMainWindow):
         jsonDict=eval(configText)
 
         #self.preferencesDialog=Preferences()
-        if jsonDict['address']=="China Mainland":
+        if jsonDict['address']=="中国大陆":
             self.preferencesDialog.landlocation.locationComboBox.setCurrentIndex(0)
         else:
             self.preferencesDialog.landlocation.locationComboBox.setCurrentIndex(1)
 
-        if jsonDict['checkFirmware']=="check update":
+        if jsonDict['checkFirmware']=="检查更新":
             self.preferencesDialog.configUpdate.checkBinComBox.setCurrentIndex(0)
         else:
             self.preferencesDialog.configUpdate.checkBinComBox.setCurrentIndex(1)
@@ -1799,7 +1802,7 @@ class MainWidget(QMainWindow):
         self.preferencesDialog.show()
 
     def slotLanlocLocation(self,item):
-        if self.preferencesDialog.landlocation.locationComboBox.currentText()=="China Mainland":
+        if self.preferencesDialog.landlocation.locationComboBox.currentText()=="中国大陆":
             configFile=open("%s/AppData/Local/uPyCraft/config.json"%rootDirectoryPath,'r')
             configText=configFile.read()
             configFile.close()
@@ -1818,20 +1821,20 @@ class MainWidget(QMainWindow):
             jsonDict=eval(configText)
 
             jsonDict['updateURL']="https://github.com/DFRobot/uPyCraft/raw/master/uPyCraft.json"
-            jsonDict['address']="others"
+            jsonDict['address']="其它"
             configText=str(jsonDict)
             configFile=open("%s/AppData/Local/uPyCraft/config.json"%rootDirectoryPath,'w')
             configFile.write(configText)
             configFile.close()
 
     def slotWetherUpdateFirmware(self):
-        if self.preferencesDialog.configUpdate.checkBinComBox.currentText()=="check update":
+        if self.preferencesDialog.configUpdate.checkBinComBox.currentText()=="检查更新":
             configFile=open("%s/AppData/Local/uPyCraft/config.json"%rootDirectoryPath,'r')
             configText=configFile.read()
             configFile.close()
             jsonDict=eval(configText)
 
-            jsonDict['checkFirmware']="check update"
+            jsonDict['checkFirmware']="检查更新"
             configText=str(jsonDict)
             configFile=open("%s/AppData/Local/uPyCraft/config.json"%rootDirectoryPath,'w')
             configFile.write(configText)
@@ -1842,18 +1845,19 @@ class MainWidget(QMainWindow):
             configFile.close()
             jsonDict=eval(configText)
             
-            jsonDict['checkFirmware']="no check"
+            jsonDict['checkFirmware']="没有检查"
             configText=str(jsonDict)
             configFile=open("%s/AppData/Local/uPyCraft/config.json"%rootDirectoryPath,'w')
             configFile.write(configText)
             configFile.close()
 
     def slotAbout(self):
-        if self.preferencesDialog.landlocation.locationComboBox.currentText()=="China Mainland":
+        if self.preferencesDialog.landlocation.locationComboBox.currentText()=="中国大陆":
             webbrowser.open("http://docs.dfrobot.com.cn/upycraft",0,True)
         else:
             webbrowser.open("http://docs.dfrobot.com/upycraft",0,True)
-
+    def slotInfo(self):
+        webbrowser.open("http://www.付坤.中国",0,True)
     def slotTerminalCursorChanged(self):
         if self.terminal.terminalSelect:
             return
@@ -1890,7 +1894,7 @@ class MainWidget(QMainWindow):
         try:
             self.asciiTOutf8(filename)
         except:
-            print("file ascii to utf8 err.")
+            print("文件ascii转utf8错误.")
         
         msg=open(filename,"rbU").read()
         if type(msg) is bytes:
@@ -2024,7 +2028,7 @@ class MainWidget(QMainWindow):
         self.createExampleMenu()
 
     def boardOther(self):
-        self.currentBoard="other"
+        self.currentBoard="其它"
 
         self.autoAPI.clear()
         self.autoAPI.prepare()
@@ -2110,7 +2114,7 @@ class MainWidget(QMainWindow):
             self.fileName=action.statusTip()
             self.pcOpenFile(self.fileName)
         else:
-            self.terminal.append("None File")
+            self.terminal.append("没有文件")
 
     def getPCLibFile(self,item,path):#mac debug
         if not os.path.exists(path):
@@ -2201,18 +2205,18 @@ class MainWidget(QMainWindow):
         if filename=="":
             return
         if str(filename).find(".py")<0 and str(filename).find(".mpy")<0:
-            print("not py or mpy file.")
+            print("没有py或mpy文件")
             return
 
         if self.myserial.ser.isOpen():
             self.uitoctrlQueue.put("goprogram:::%s"%filename)
             self.keyPressMsg=""
         else:
-            self.terminal.append("serial not already open")
+            self.terminal.append("串口未打开")
 
     def treeRightMenuRunFile(self):
         if str(self.fileName).find(":")>0:
-            self.terminal.append("This file not in Board")
+            self.terminal.append("这个文件不在开发板中..")
             return
         self.goProgram(self.fileName)
 
@@ -2229,7 +2233,7 @@ class MainWidget(QMainWindow):
         if str(self.fileName).find(".py")>0 or str(self.fileName).find(".txt")>0 or str(self.fileName).find(".json")>0 or str(self.fileName).find(".ini")>0:
             pass
         else:
-            self.terminal.append("current version only open py,txt,json,ini.")
+            self.terminal.append("当前版本只支持打开py,txt,json,ini文件")
             return
         if self.editClassFileitem(self.fileName)==False:
             return
@@ -2336,11 +2340,11 @@ class MainWidget(QMainWindow):
 
     def updateFirmware(self,isAuto=False):
         if self.currentBoard=="pyboard" or self.currentBoard=="TPYBoardV102":
-            self.terminal.append("You choose %s,you should reconnect to serial or hardware burnt by yourself!"%self.currentBoard)
+            self.terminal.append("选择％s，您应该重新连接到开发板串行烧写硬件！"%self.currentBoard)
             self.canNotIdentifyBoard=False
             return
         elif self.currentBoard=="other":
-            self.bottomText.append("You choose other board,you should reconnect to serial or hardware burnt by yourself!")
+            self.bottomText.append("您选择其他板子后，应重新连接到自己烧毁的串行或硬件！")
             self.canNotIdentifyBoard=False
             return
 
@@ -2382,7 +2386,7 @@ class MainWidget(QMainWindow):
                 try:
                     url = firmwareList[str(self.updateBin.boardComboBox.currentText())][0]["url"]
                 except:
-                    self.terminal.append("Please reOpne the uPy.")
+                    self.terminal.append("请重新打开uPy")
 
                 self.firmwareNameList=url.split("/")
                 self.updateSize=firmwareList[str(self.updateBin.boardComboBox.currentText())][0]["size"]
@@ -2393,13 +2397,13 @@ class MainWidget(QMainWindow):
                     return
         
                 if self.updateBin.eraseComboBox.currentText()=='yes' and self.canNotIdentifyBoard:
-                    self.updateFirmwareBar=updateNewFirmwareBar("Burn Firmware",True,True)
+                    self.updateFirmwareBar=updateNewFirmwareBar("烧写固件",True,True)
                 elif self.updateBin.eraseComboBox.currentText()=='yes' and not self.canNotIdentifyBoard:
-                    self.updateFirmwareBar=updateNewFirmwareBar("update Firmware",True,True)
+                    self.updateFirmwareBar=updateNewFirmwareBar("更新固件",True,True)
                 elif self.updateBin.eraseComboBox.currentText()=='no' and self.canNotIdentifyBoard:
-                    self.updateFirmwareBar=updateNewFirmwareBar("Burn Firmware",False,True)
+                    self.updateFirmwareBar=updateNewFirmwareBar("烧写固件",False,True)
                 else:
-                    self.updateFirmwareBar=updateNewFirmwareBar("update Firmware",False,True)
+                    self.updateFirmwareBar=updateNewFirmwareBar("更新固件",False,True)
 
                 self.updateFirmwareBar.show()
                 
@@ -2413,7 +2417,7 @@ class MainWidget(QMainWindow):
                 self.firmwareAny.start()
                 return
             else:
-                self.terminal.append("hope to connect internet and try again.")
+                self.terminal.append("连接互联网并重试。")
                 return
         else:
             if self.updateBin.firmwareName.text()!="":
@@ -2423,15 +2427,15 @@ class MainWidget(QMainWindow):
                 print(userFirmwareName)
                 print("++++++++++++++++")
                 if not os.path.exists(userFirmwareName):
-                    self.terminal.append("user choosed firmware file is not exists!")
+                    self.terminal.append("用户选择的固件文件不存在！")
                     return
                 if self.updateBin.boardComboBox.currentText()=="esp8266" or self.updateBin.boardComboBox.currentText()=="esp32":
                     if userFirmwareName[-4:] != ".bin":
-                        self.terminal.append("choosed esp8266 or esp32,firmware must be '.bin' at the end.")
+                        self.terminal.append("选择esp8266或esp32，固件末尾必须为'.bin'。")
                         return
                 if self.updateBin.boardComboBox.currentText()=="microbit":
                     if userFirmwareName[-4:] != ".hex":
-                        self.terminal.append("choosed micro:bit,firmware must be '.hex' at the end.")
+                        self.terminal.append("选择的micro:bit，固件末尾必须为“.hex”。")
                         return
                 if self.myserial.ser.isOpen():
                     self.slotCloseSerial()
@@ -2466,7 +2470,7 @@ class MainWidget(QMainWindow):
     def firmwareAnyDown(self,per):
         if per==-1:
             self.updateFirmwareBar.close()
-            QMessageBox.information(self,self.tr("attention"),self.tr("download false."),QMessageBox.Ok)
+            QMessageBox.information(self,self.tr("attention"),self.tr("下载错误."),QMessageBox.Ok)
             return
         print(per)
         if per>=100:
@@ -2479,7 +2483,7 @@ class MainWidget(QMainWindow):
     def firmwareAnyUpdate(self,per):
         if per==-1:
             self.updateFirmwareBar.close()
-            QMessageBox.information(self,self.tr("attention"),self.tr("update false."),QMessageBox.Ok)
+            QMessageBox.information(self,self.tr("attention"),self.tr("下载错误."),QMessageBox.Ok)
             return
         elif per==-2:#microbit 
             self.updateFirmwareBar.close()
@@ -2495,7 +2499,7 @@ class MainWidget(QMainWindow):
     def firmwareAnyErase(self,per):
         if per==-1:
             self.updateFirmwareBar.close()
-            QMessageBox.information(self,self.tr("attention"),self.tr("erase false."),QMessageBox.Ok)
+            QMessageBox.information(self,self.tr("attention"),self.tr("擦除出错."),QMessageBox.Ok)
             return
         if per>=100:
             per=100
@@ -2505,8 +2509,8 @@ class MainWidget(QMainWindow):
         self.updateFirmwareBar.eraseEvent(per)
 
     def microbitUpdate(self):
-        microbitUP=QMessageBox.question(self,"microbit update",  
-                                    "Please wait,untill the yellow light is not blink.ready to update?",
+        microbitUP=QMessageBox.question(self,"microbit更新",  
+                                    "请稍等，直到黄灯不闪烁。准备好更新了吗？",
                                     QMessageBox.Ok|QMessageBox.Cancel,  
                                     QMessageBox.Ok)
         if microbitUP==QMessageBox.Ok:
@@ -2520,11 +2524,11 @@ class MainWidget(QMainWindow):
                        break
             elif os.name == "nt":
                 if self.get_fs_info(self.firmwareSavePath):
-                    QMessageBox.information(self,self.tr("microbit update"),self.tr("update ok"),QMessageBox.Ok)
+                    QMessageBox.information(self,self.tr("microbit 更新"),self.tr("升级成功"),QMessageBox.Ok)
                 else:
-                    QMessageBox.information(self,self.tr("microbit update"),self.tr("update false"),QMessageBox.Ok)
+                    QMessageBox.information(self,self.tr("microbit 更新"),self.tr("升级失败"),QMessageBox.Ok)
             else:
-                print("system not support.")
+                print("系统不支持。")
         else:
             pass
 
@@ -2541,7 +2545,7 @@ class MainWidget(QMainWindow):
             path='{}:/'.format(disk)
             if os.path.exists(path) and self.get_volume_name(path)=='MICROBIT':
                 print(path)
-                print("!!!we find microBit!!!")
+                print("！！我们找到了microBit ！！！")
                 path=path+'microbit.hex'
                 try:
                     shutil.copyfile(oldpath,path)
@@ -2551,7 +2555,7 @@ class MainWidget(QMainWindow):
                     return False
             else:
                 pass
-        self.terminal.append("!!!we can't find microBit!!!")
+        self.terminal.append("！！我们找不到microBit ！！！")
         return False
 
 #check version
@@ -2581,7 +2585,7 @@ class MainWidget(QMainWindow):
     def updataPer(self,per):
         if per==-1:
             self.updataIDEorExamplesBar.close()
-            QMessageBox.information(self,self.tr("attention"),self.tr("download false."),QMessageBox.Ok)
+            QMessageBox.information(self,self.tr("注意"),self.tr("下载失败."),QMessageBox.Ok)
             return
         
         self.updataIDEorExamplesBar.show()
@@ -2597,8 +2601,8 @@ class MainWidget(QMainWindow):
             if self.tabWidget.currentTab==-1:
                 break
             if str(self.tabWidget.tabText(self.tabWidget.currentTab))[0]=="*":
-                self.terminal.append("some file is not be saved")
-                confirmClose = QMessageBox.question(self,"Attention","some file is not saved, continue close?",
+                self.terminal.append("文件未保存")
+                confirmClose = QMessageBox.question(self,"注意","一些文件没有保存，继续关闭吗？",
                                                     QMessageBox.Ok|QMessageBox.Cancel,
                                                     QMessageBox.Ok)
                 if confirmClose==QMessageBox.Ok:
@@ -2625,20 +2629,20 @@ class MainWidget(QMainWindow):
     def uiRecvFromCtrl(self,data):
         if data==".":
             self.cursor.insertText(data)
-        elif data=="download false":
+        elif data=="下载失败":
             self.terminal.append(data+"\n")
             self.inDownloadFile=False
             self.slotTreeModel()
-        elif data=="download ok":
+        elif data=="下载成功":
             self.terminal.append(data+"\n")
             self.slotTreeModel()
-        elif data=="newdir ok":
+        elif data=="新建目录成功":
             self.slotTreeModel()
-        elif data=="rename ok":
+        elif data=="重命名文件成功":
             self.slotTreeModel()
-        elif data=="rmdir ok":
+        elif data=="删除目录成功":
             self.slotTreeModel()
-        elif data=="set Default ok":
+        elif data=="设置默认文件成功":
             self.slotTreeModel()
         elif data.find("rootDir")>=0:
             data=data.split(":")
@@ -2649,7 +2653,7 @@ class MainWidget(QMainWindow):
                 self.rootDir="."
         elif data=="import os timeout" or data=="getcwd timeout":
             if self.myserial.ser.isOpen()==True:
-                self.terminal.append("read timeout,please reset the board or reopen the uPy.")
+                self.terminal.append("读取超时，请重设板子或重新打开uPy。")
                 self.slotCloseSerial()
         elif data=="runningFileBreakFalse":
             self.inDownloadFile=False
@@ -2658,7 +2662,7 @@ class MainWidget(QMainWindow):
 
     def reflushTree(self,data):
         if data=="err":
-            self.terminal.append("reflush tree error")
+            self.terminal.append("刷新树错误")
             self.inDownloadFile=False
             return
         print("reflushTree=====================%s"%data)
@@ -2666,7 +2670,7 @@ class MainWidget(QMainWindow):
         self.rootDevice.removeRows(0,row)
 
         if type(data) is not dict:
-            self.terminal.append("reflush tree error, try again.")
+            self.terminal.append("重新刷新树错误，然后重试。")
             self.inDownloadFile=False
             return
 
@@ -2753,7 +2757,7 @@ class MainWidget(QMainWindow):
         self.tabWidget.createNewTab(filename,data,self.lexer)
 
     def deleteBoardFileSig(self,deletedFile):
-        self.terminal.append("delete ok")
+        self.terminal.append("删除成功")
         if deletedFile in self.fileitem.list:
             num=0
             while num<self.fileitem.size:
@@ -2770,15 +2774,15 @@ class MainWidget(QMainWindow):
         oldname = self.fileName
         if self.currentBoard=="esp32":
             if self.fileName==self.rootDir:
-                self.terminal.append("root dir not be change")
+                self.terminal.append("根目录不可更改")
                 return
         elif self.currentBoard=="esp8266":
             if self.fileName==self.rootDir:
-                self.terminal.append("root dir not be change")
+                self.terminal.append("根目录不可更改")
                 return
         elif self.currentBoard=="pyboard":
             if self.fileName==self.rootDir:
-                self.terminal.append("root dir not be change")
+                self.terminal.append("根目录不可更改")
                 return
         else:
             print("*********renamecontinue")

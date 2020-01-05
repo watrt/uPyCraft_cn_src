@@ -16,17 +16,17 @@ class findReplaceText(QDialog):
     def __init__(self,parent=None):
         super(findReplaceText,self).__init__(parent) 
         self.setWindowFlags(Qt.WindowCloseButtonHint)#HelpButtonHint?
-        self.setWindowTitle("Find&Replace")
+        self.setWindowTitle("查找&替换")
         self.setWindowIcon(QIcon(':/logo.png')) 
         self.setStyleSheet("""QDialog{background-color: rgb(236, 236, 236);color:black;}
                            QPushButton{background-color:rgb(253,97,72);color:white;}
                            QPushButton:hover{background-color:rgb(212,212,212);color:black;}
                            """)
         self.findedit=QLineEdit()
-        self.findButton=QPushButton(self.tr("find"))
+        self.findButton=QPushButton(self.tr("查找"))
         self.replaceStartEdit=QLineEdit()
         self.replaceToEdit=QLineEdit()
-        self.replaceButton=QPushButton(self.tr("replace"))
+        self.replaceButton=QPushButton(self.tr("替换"))
         self.msg=QLabel(self.tr("To"))
 
         self.layout=QGridLayout()
@@ -43,7 +43,7 @@ class saveUntitled(QDialog):
     def __init__(self,parent=None):
         super(saveUntitled,self).__init__(parent)
         self.setWindowFlags(Qt.WindowCloseButtonHint)#HelpButtonHint?
-        self.setWindowTitle("save at your workSpace")
+        self.setWindowTitle("保存在您的工作空间")
         self.resize(400,80)
         self.setWindowIcon(QIcon(':/logo.png')) 
 
@@ -51,13 +51,13 @@ class saveUntitled(QDialog):
                            QPushButton{background-color:rgb(253,97,72);color:white;}
                            """)
                                 
-        self.saveFileLabel=QLabel(self.tr("Input file name"))
+        self.saveFileLabel=QLabel(self.tr("输入文件名"))
         self.saveFileTextedit=QLineEdit()
                                 
         self.saveFileWidget=QWidget()
                                 
-        self.okButton=QPushButton(self.tr("ok"))
-        self.cancelButton=QPushButton(self.tr("cancel"))
+        self.okButton=QPushButton(self.tr("确认"))
+        self.cancelButton=QPushButton(self.tr("取消"))
                                 
         saveFileLayout=QGridLayout(self.saveFileWidget)
                                 
@@ -81,17 +81,17 @@ class treeRightClickRename(QDialog):
     def __init__(self,parent=None):
         super(treeRightClickRename,self).__init__(parent)
         self.setWindowFlags(Qt.WindowCloseButtonHint)#HelpButtonHint?
-        self.setWindowTitle("Rename as")
+        self.setWindowTitle("重命名为")
         self.setWindowIcon(QIcon(':/logo.png'))
         self.setStyleSheet("""QDialog{background-color: rgb(236, 236, 236);color:black;}
                            QPushButton{background-color:rgb(253,97,72);color:white;}
                            """)
 
-        self.nameLabel=QLabel(self.tr("new name:"))
+        self.nameLabel=QLabel(self.tr("新文件名:"))
         self.nameLineEdit=QLineEdit()
 
-        self.okButton=QPushButton(self.tr("ok"))
-        self.cancelButton=QPushButton(self.tr("cancel"))
+        self.okButton=QPushButton(self.tr("确认"))
+        self.cancelButton=QPushButton(self.tr("取消"))
 
 
         self.connect(self.okButton,SIGNAL("clicked()"),self.renameOk)
@@ -114,18 +114,18 @@ class createBoardNewDirName(QDialog):
     def __init__(self,parent=None):
         super(createBoardNewDirName,self).__init__(parent)
         self.setWindowFlags(Qt.WindowCloseButtonHint)#HelpButtonHint?
-        self.setWindowTitle("boardDirName")
+        self.setWindowTitle("开发板目录名")
         self.setWindowIcon(QIcon(':/logo.png'))
         self.setStyleSheet("""QDialog{background-color: rgb(236, 236, 236);color:black;}
                            QPushButton{background-color:rgb(253,97,72);color:white;}
                            """)
         self.resize(200,80)
-        self.nameLabel=QLabel(self.tr("Input Dir Name"))
+        self.nameLabel=QLabel(self.tr("输入目录名"))
         self.nameLineEdit=QLineEdit()
 
         self.nameWidget=QWidget()
-        self.okButton=QPushButton(self.tr("ok"))
-        self.cancelButton=QPushButton(self.tr("cancel"))
+        self.okButton=QPushButton(self.tr("确认"))
+        self.cancelButton=QPushButton(self.tr("取消"))
 
         layout=QGridLayout(self.nameWidget)
         layout.addWidget(self.nameLabel,0,0)
@@ -148,30 +148,30 @@ class SerialWidget(QWidget):
     def __init__(self,parent=None):
         super(SerialWidget,self).__init__(parent)  
         
-        serialBaund=QLabel("baud")
+        serialBaund=QLabel("波特率")
         self.baundComboBox=QComboBox()
         self.baundComboBox.addItems(['100','300','600','1200','2400','4800','9600','14400','19200','38400','56000','57600','115200','128000','256000'])
         self.baundComboBox.setCurrentIndex(12)
 
-        serialBytesize=QLabel("bytesize")
+        serialBytesize=QLabel("数据位")
         self.bytesizeComboBox=QComboBox()
         self.bytesizeComboBox.addItems(['5','6','7','8'])
         self.bytesizeComboBox.setCurrentIndex(3)
 		
-        serialParity=QLabel("parity")
+        serialParity=QLabel("奇偶校验")
         self.parityComboBox=QComboBox()
         self.parityComboBox.addItems(['NONE','EVEN','ODD','MARK','SPACE'])
         self.parityComboBox.setCurrentIndex(0)
         
         #serialTimeout
 
-        serialStopbits=QLabel("stopbits")
+        serialStopbits=QLabel("停止位")
         self.stopbitsComboBox=QComboBox()
         self.stopbitsComboBox.addItems(['1','1.5','2'])
         self.stopbitsComboBox.setCurrentIndex(0)
 
-        self.okButton=QPushButton(self.tr("ok"))
-        self.cancelButton=QPushButton(self.tr("cancel"))
+        self.okButton=QPushButton(self.tr("确认"))
+        self.cancelButton=QPushButton(self.tr("取消"))
 		
         self.detailWidget=QWidget()
         detailLayout=QGridLayout(self.detailWidget)
@@ -212,14 +212,14 @@ class LanLocWidget(QWidget):
     def __init__(self,parent=None):
         super(LanLocWidget,self).__init__(parent)  
                
-        languageLabel=QLabel(self.tr("Language"))
+        languageLabel=QLabel(self.tr("语言"))
         self.languageComBox=QComboBox()
-        self.languageComBox.addItems(['English'])
+        self.languageComBox.addItems(['简体中文'])
         self.languageComBox.setCurrentIndex(0)
     
-        locationLabel=QLabel(self.tr("Location"))
+        locationLabel=QLabel(self.tr("区域"))
         self.locationComboBox=QComboBox()
-        self.locationComboBox.addItems(['China Mainland','Others'])
+        self.locationComboBox.addItems(['中国大陆','其它'])
         self.locationComboBox.setCurrentIndex(0)
 
         self.detailWidget=QWidget()
@@ -235,9 +235,9 @@ class updateConfig(QWidget):
     def __init__(self,parent=None):
         super(updateConfig,self).__init__(parent)
 
-        checkFirmware=QLabel(self.tr("CheckFirmware"))
+        checkFirmware=QLabel(self.tr("检查固件"))
         self.checkBinComBox=QComboBox()
-        self.checkBinComBox.addItems(['check update','no check'])
+        self.checkBinComBox.addItems(['检查更新','没有更新'])
         self.checkBinComBox.setCurrentIndex(0)
 
         self.detailWidget=QWidget()
@@ -262,12 +262,12 @@ class Preferences(QDialog):
         
         tabWidget=QTabWidget()
         tabWidget.setTabPosition(QTabWidget.North);
-        tabWidget.addTab(self.configUpdate,"config")
-        tabWidget.addTab(self.landlocation,"Languare Location")
-        tabWidget.addTab(SerialWidget(self),"Serial")
+        tabWidget.addTab(self.configUpdate,"配置")
+        tabWidget.addTab(self.landlocation,"语言区域")
+        tabWidget.addTab(SerialWidget(self),"串口")
         
         layout.addWidget(tabWidget,1,0)
         self.setLayout(layout)
         self.resize(300,200)
-        self.setWindowTitle("Preferences")
+        self.setWindowTitle("首选项")
         self.setWindowIcon(QIcon(':/logo.png'))

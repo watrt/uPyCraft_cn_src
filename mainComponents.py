@@ -523,25 +523,25 @@ class myTreeView(QTreeView):
     def createRightMenu(self):
         self.setContextMenuPolicy(Qt.CustomContextMenu)
 
-        self.runFile=QAction(self.tr("Run"),self)
+        self.runFile=QAction(self.tr("运行"),self)
         self.connect(self.runFile,SIGNAL("triggered()"),self.rightMenuRunFile)
         
-        self.openFile=QAction(self.tr("Open"),self) 
+        self.openFile=QAction(self.tr("打开"),self) 
         self.connect(self.openFile,SIGNAL("triggered()"),self.rightMenuOpenFile)
 
-        self.closeFile=QAction(self.tr("Close"),self)
+        self.closeFile=QAction(self.tr("关闭"),self)
         self.connect(self.closeFile,SIGNAL("triggered()"),self.rightMenuCloseFile)
         
-        self.deleteFile=QAction(self.tr("Delete"),self) 
+        self.deleteFile=QAction(self.tr("删除"),self) 
         self.connect(self.deleteFile,SIGNAL("triggered()"),self.rightMenuDeleteFile)
 
-        self.defaultProgram=QAction(self.tr("Default Run"),self)
+        self.defaultProgram=QAction(self.tr("默认运行"),self)
         self.connect(self.defaultProgram,SIGNAL("triggered()"),self.rightMenuDefaultProgram)
 
-        self.rename=QAction(self.tr("Rename"),self)
+        self.rename=QAction(self.tr("重命名"),self)
         self.connect(self.rename,SIGNAL("triggered()"),self.rightMenuRename)
 
-        self.newDir=QAction(self.tr("New Dir"),self)
+        self.newDir=QAction(self.tr("新建目录"),self)
         self.connect(self.newDir,SIGNAL("triggered()"),self.rightMenuNewDir)
 
         self.rightClickMenu=QMenu(self)
@@ -931,23 +931,23 @@ class myTabWidget(QTabWidget):
                 QMenu::item::selected{background-color:rgb(124,124,124);}
             """)
             
-            undo=QAction(self.tr("Undo"),self)
+            undo=QAction(self.tr("撒消"),self)
             undo.setShortcut("Ctrl+Z")
             self.connect(undo,SIGNAL("triggered()"),self.slotUndo)
 
-            redo=QAction(self.tr("Redo"),self)
+            redo=QAction(self.tr("重做"),self)
             redo.setShortcut("Ctrl+Y")
             self.connect(redo,SIGNAL("triggered()"),self.slotRedo)
 
-            cut=QAction(self.tr("Cut"),self)
+            cut=QAction(self.tr("剪切"),self)
             cut.setShortcut("Ctrl+X")
             self.connect(cut,SIGNAL("triggered()"),self.slotCut)
 
-            copy=QAction(self.tr("Copy"),self)
+            copy=QAction(self.tr("复制"),self)
             copy.setShortcut("Ctrl+C")
             self.connect(copy,SIGNAL("triggered()"),self.slotCopy)
 
-            paste=QAction(self.tr("Paste"),self)
+            paste=QAction(self.tr("粘贴"),self)
             paste.setShortcut("Ctrl+V")
             self.connect(paste,SIGNAL("triggered()"),self.slotPaste)            
 
